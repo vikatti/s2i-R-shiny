@@ -43,8 +43,13 @@ RUN chmod -R g+w /opt/app-root/R/
 ENV R_LIBS_USER=/opt/app-root/R/
 
 RUN R -s -e "install.packages('shiny', repos = 'http://cran.rstudio.com/' )"
-RUN R -s -e "install.packages('remotes', repos = 'http://cran.rstudio.com/' )"
-RUN R -s -e "remotes::install_github('MilesMcBain/deplearning')"
+RUN R -s -e "install.packages('dplyr', repos = 'http://cran.rstudio.com/' )"
+RUN R -s -e "install.packages('tidyr', repos = 'http://cran.rstudio.com/' )"
+RUN R -s -e "install.packages('lubridate', repos = 'http://cran.rstudio.com/' )"
+RUN R -s -e "install.packages('stringr', repos = 'http://cran.rstudio.com/' )"
+RUN R -s -e "install.packages('janitor', repos = 'http://cran.rstudio.com/' )"
+RUN R -s -e "install.packages('readr', repos = 'http://cran.rstudio.com/' )"
+RUN R -s -e "install.packages('odbc', repos = 'http://cran.rstudio.com/' )"
 
 COPY ./s2i/bin/ /usr/libexec/s2i
 
